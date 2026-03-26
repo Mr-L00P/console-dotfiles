@@ -1,5 +1,5 @@
 
-# Custom Console Prompts
+# Custom Console Dotfiles
 
 I'm using this repository to save my used console dotfiles, mainly for the prompts themselves
 
