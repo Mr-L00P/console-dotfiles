@@ -1,0 +1,37 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/mrloop/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+# End of lines added by compinstall
+
+PROMPT='%F{194}%n%f%F{147}@%f%F{153}%m: %f%F{229}%~%f
+%F{217}§ ›› %f'
+source ~/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+alias edzsh="nano ~/.zshrc"
+
+function cdf() {
+    if [ -z "$1" ]; then
+        echo "Usage: cdf <dir_name>"
+        return 1
+    fi
+    target=$(find . -type d -name "$1" -print -quit)
+    if [ -n "$target" ]; then
+        cd "$target" || return
+    else
+        echo "Directorio '$1' not found"
+        return 1
+    fi
+}
